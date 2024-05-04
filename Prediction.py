@@ -1,13 +1,4 @@
 import pandas as pd
-from ucimlrepo import fetch_ucirepo
-import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
-from sklearn.metrics import accuracy_score
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import StandardScaler
-import pickle
-# Fetch dataset
-import pandas as pd
 import numpy as np
 from ucimlrepo import fetch_ucirepo
 import matplotlib.pyplot as plt
@@ -16,46 +7,39 @@ from sklearn.metrics import accuracy_score
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import StratifiedKFold
-# Fetch dataset
-heart_disease = fetch_ucirepo(id=45)
+import pickle
 
-# Data (as pandas dataframes)
-X = heart_disease.data.features
-y = heart_disease.data.targets
+# Fetch dataset
+heart_data = fetch_ucirepo(id=45)
+
+# Extract features and target
+X = heart_data.data.features
+y = heart_data.data.targets
 
 # Get column names from metadata
-column_names = getattr(heart_disease.variables, 'feature_names', None)
-
-# If feature_names is not available, you may need to explore the variables attribute
-# column_names = heart_disease.variables  # Uncomment this line and explore the variables attribute
+column_names = getattr(heart_data.variables, 'feature_names', None)
 
 # Convert data to pandas DataFrame
-df = pd.DataFrame(data=X, columns=column_names)
+heart_df = pd.DataFrame(data=X, columns=column_names)
 
 # Add the target column to the DataFrame
-df['target'] = y
+heart_df['target'] = y
 
-# Display the DataFrame
-
-df['target'] = df['target'].replace({0: 0, 1: 1, 2: 1, 3: 1, 4: 1})
-
-# Assuming you have already loaded your dataset into pandas DataFrame 'df'
+# Map target labels to binary classification (0 for absence, 1 for presence of heart disease)
+heart_df['target'] = heart_df['target'].replace({0: 0, 1: 1, 2: 1, 3: 1, 4: 1})
 
 # Separate features (X) and target (y)
-X = df.drop(columns=['target'])  # Assuming 'target' is the column name for the labels
-y = df['target']
+X = heart_df.drop(columns=['target'])
+y = heart_df['target']
 
 # Initialize Stratified K-Fold
-skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
-
-# Convert y to a numpy array for indexing
-y_np = y.to_numpy()
+stratified_kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
 # Perform cross-validation
 accuracies = []
-for train_index, test_index in skf.split(X, y):
+for train_index, test_index in stratified_kfold.split(X, y):
     X_train, X_test = X.iloc[train_index], X.iloc[test_index]
-    y_train, y_test = y_np[train_index], y_np[test_index]
+    y_train, y_test = y[train_index], y[test_index]
 
     # Impute missing values in the training and testing data
     imputer = SimpleImputer(strategy='mean')
@@ -89,6 +73,6 @@ for train_index, test_index in skf.split(X, y):
 avg_accuracy = np.mean(accuracies)
 print("Average Cross-Validation Accuracy with KMeans:", avg_accuracy)
 
-
-filename = 'heart-disease-prediction-kmeans-model.pkl'
-pickle.dump(kmeans, open(filename, 'wb'))
+# Save the trained KMeans model
+model_filename = 'heart-disease-prediction-kmeans-model.pkl'
+pickle.dump(kmeans, open(model_filename, 'wb'))
