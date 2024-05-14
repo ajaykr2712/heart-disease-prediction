@@ -1,5 +1,5 @@
-# Heart Disease Prediction
-## Welcome to the Heart Disease Prediction project repository! 🩺❤️
+# Heart Disease Prediction using Unsupervised Approach 💖
+## Welcome to the Heart Disease Prediction project repository!In this project, we explore the application of unsupervised learning techniques, particularly the K-means algorithm, to predict heart disease. 🩺❤️
 This project aims to predict the likelihood of heart disease in individuals based on various medical attributes. Leveraging machine learning techniques, we analyze a comprehensive dataset to develop predictive models that can assist healthcare professionals in early detection and intervention.
 ## About
 Heart disease is a leading cause of mortality worldwide. Early detection plays a crucial role in improving patient outcomes and reducing mortality rates. The goal of this project is to develop accurate prediction models using machine learning algorithms, providing a valuable tool for healthcare providers in risk assessment and preventive care strategies.
