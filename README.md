@@ -20,6 +20,22 @@ Among various unsupervised learning algorithms explored, the K-means algorithm e
 * Evaluation Metrics: Assess model performance using relevant evaluation metrics such as accuracy, precision, recall, and F1-score.
 * Interactive Interface (Optional): Provide an optional feature if you have implemented an interactive interface for users to input their data and get predictions.
 
+  ## Usage 🚀
+
+To replicate our experiments and explore the heart disease prediction model:
+
+1. Clone this repository to your local machine.
+2. Install the necessary dependencies (e.g., Python, scikit-learn, matplotlib).
+3. Run the provided Jupyter notebook or Python script to preprocess the data, train the K-means model, and visualize the results.
+4. Experiment with different parameters and preprocessing techniques to improve model performance.
+
+## Future Work 🔍
+
+- Explore other unsupervised learning algorithms (e.g., hierarchical clustering, DBSCAN) for comparison.
+- Incorporate additional features or data sources to enhance model accuracy and robustness.
+- Evaluate the predictive performance of the model on unseen data and real-world clinical settings.
+
+
 ## Getting Started
 Installation: Clone the repository to your local machine.
 Dependencies: Install the necessary dependencies by running pip install -r requirements.txt.
@@ -28,6 +44,9 @@ Model Training: Train machine learning models using the provided scripts or note
 Evaluation: Evaluate model performance and fine-tune as necessary.
 Prediction: Optionally, deploy the model for real-time predictions (if applicable).
 
-## Usage
-Provide instructions on how to use the predictive models for heart disease prediction. Include sample code snippets or usage examples if applicable.
+## Contributors 🙌
+
+- [Myself🧠 ](https://github.com/ajaykr2712) - Content Visualiser& Resource Curator
+- [Vinutna](https://github.com/vinutnapolisetty) - Developer
+- [Shravani](https://github.com/username3) - Documentation Lead
 
