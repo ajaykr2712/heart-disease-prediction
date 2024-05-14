@@ -1,8 +1,19 @@
 # Heart Disease Prediction using Unsupervised Approach 💖
 ## Welcome to the Heart Disease Prediction project repository!In this project, we explore the application of unsupervised learning techniques, particularly the K-means algorithm, to predict heart disease. 🩺❤️
 This project aims to predict the likelihood of heart disease in individuals based on various medical attributes. Leveraging machine learning techniques, we analyze a comprehensive dataset to develop predictive models that can assist healthcare professionals in early detection and intervention.
+## Project Overview 📊
+
+Heart disease is a significant health concern worldwide. Early detection and prediction play a crucial role in preventing and managing this condition. In this project, we aim to develop a predictive model using unsupervised learning techniques to identify patterns and clusters within heart disease data that can aid in early diagnosis and intervention.
+
+## Dataset 📈
+
+The dataset used in this project contains all the samples of anonymized patient data, including various clinical and demographic features such as age, sex, cholesterol levels, and blood pressure measurements. The dataset is sourced from [Kaggle](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset).
+
 ## About
 Heart disease is a leading cause of mortality worldwide. Early detection plays a crucial role in improving patient outcomes and reducing mortality rates. The goal of this project is to develop accurate prediction models using machine learning algorithms, providing a valuable tool for healthcare providers in risk assessment and preventive care strategies.
+## K-means Algorithm 🧠
+
+Among various unsupervised learning algorithms explored, the K-means algorithm emerged as the most promising approach for clustering heart disease data. K-means is a simple yet powerful clustering algorithm that partitions data into 'k' clusters based on similarity of features.
 ## Features
 * Predictive Models: Explore different machine learning algorithms used for heart disease prediction.
 * Data Analysis: Dive into comprehensive data analysis to understand the factors influencing heart disease.
