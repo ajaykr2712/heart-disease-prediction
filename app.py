@@ -2,40 +2,37 @@ from flask import Flask, render_template, request
 import pickle
 import numpy as np
 
-filename = 'heart-disease-prediction-kmeans-model.pkl'
-model = pickle.load(open(filename, 'rb'))
+model_filename = 'heart-disease-prediction-kmeans-model.pkl'
+heart_disease_model = pickle.load(open(model_filename, 'rb'))
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-	return render_template('main.html')
+    return render_template('main.html')
 
-
-@app.route('/predict', methods=['GET','POST'])
+@app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if request.method == 'POST':
 
-        age = int(request.form['age'])
-        sex = request.form.get('sex')
-        cp = request.form.get('cp')
-        trestbps = int(request.form['trestbps'])
-        chol = int(request.form['chol'])
-        fbs = request.form.get('fbs')
-        restecg = int(request.form['restecg'])
-        thalach = int(request.form['thalach'])
-        exang = request.form.get('exang')
-        oldpeak = float(request.form['oldpeak'])
-        slope = request.form.get('slope')
-        ca = int(request.form['ca'])
-        thal = request.form.get('thal')
+        patient_age = int(request.form['age'])
+        patient_sex = request.form.get('sex')
+        chest_pain_type = request.form.get('cp')
+        resting_blood_pressure = int(request.form['trestbps'])
+        cholesterol_level = int(request.form['chol'])
+        fasting_blood_sugar = request.form.get('fbs')
+        resting_ecg = int(request.form['restecg'])
+        max_heart_rate_achieved = int(request.form['thalach'])
+        exercise_induced_angina = request.form.get('exang')
+        st_depression = float(request.form['oldpeak'])
+        st_slope = request.form.get('slope')
+        number_of_major_vessels = int(request.form['ca'])
+        thalassemia = request.form.get('thal')
         
-        data = np.array([[age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal]])
-        my_prediction = model.predict(data)
+        input_features = np.array([[patient_age, patient_sex, chest_pain_type, resting_blood_pressure, cholesterol_level, fasting_blood_sugar, resting_ecg, max_heart_rate_achieved, exercise_induced_angina, st_depression, st_slope, number_of_major_vessels, thalassemia]])
+        prediction_result = heart_disease_model.predict(input_features)
         
-        return render_template('result.html', prediction=my_prediction)
-        
-        
+        return render_template('result.html', prediction=prediction_result)
 
 if __name__ == '__main__':
-	app.run(debug=True)
+    app.run(debug=True)
