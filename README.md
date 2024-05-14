@@ -47,5 +47,5 @@ Prediction: Optionally, deploy the model for real-time predictions (if applicabl
 
 - [Myself🧠 ](https://github.com/ajaykr2712) - Content Visualiser& Resource Curator
 - [Vinutna](https://github.com/vinutnapolisetty) - Developer
-- [Shravani](https://github.com/username3) - Documentation Lead
+- [Shravani](https://github.com/shravanipothina) - Documentation Lead
 
